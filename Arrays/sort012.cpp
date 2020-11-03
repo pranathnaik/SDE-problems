@@ -12,16 +12,16 @@ int main()
     }
     int low = 0;
     int mid = 0;
-    int high = size-1;
+    int high = size - 1;
     int temp;
-    while (mid != high+1)
+    while (mid != high + 1)
     {
         switch (a[mid])
         {
         case 0:
-            temp=a[low];
-            a[low]=a[mid];
-            a[mid]=temp;
+            temp = a[low];
+            a[low] = a[mid];
+            a[mid] = temp;
             low++;
             mid++;
             break;
@@ -30,12 +30,11 @@ int main()
             break;
 
         case 2:
-            temp=a[mid];
-            a[mid]=a[high];
-            a[high]=temp;
+            temp = a[mid];
+            a[mid] = a[high];
+            a[high] = temp;
             high--;
             break;
-
         }
     }
 
