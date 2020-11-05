@@ -1,6 +1,7 @@
 package Arrays;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 class Interval {
     int start;
@@ -28,21 +29,25 @@ class Interval {
     }
 
     public static void merge(Interval a[]) {
-        Interval b[] = new Interval[a.length];
-        for (int i = 0; i < b.length; i++) {
-          b[i]= new Interval(0,0);
-        }
-        for (int i = 0; i < a.length-1; i++) {
-            if (a[i + 1].end > a[i].end) {
-              //swap
-                
-            }
-        } 
-    }
+        Stack<Interval> st = new Stack<>();
+        st.push(a[0]);
+        for (int i = 1; i < a.length; i++) {
 
-    public static void display(Interval a[]) {
-        for (int i = 0; i < a.length; i++)
-            System.out.println("(" + a[i].start + "," + a[i].end + ")");
+            Interval topstack = st.peek();
+
+            if (topstack.end < a[i].start)
+                st.push(a[i]);
+            else if (topstack.end < a[i].end) {
+                topstack.end = a[i].end;
+                st.pop();
+                st.push(topstack);
+            }
+        }
+
+        while (!st.isEmpty()) {
+            Interval dis = st.pop();
+            System.out.println("(" + dis.start + "," + dis.end + ")");
+        }
     }
 
     public static void main(String[] args) {
@@ -55,10 +60,9 @@ class Interval {
             e = sc.nextInt();
             a[i] = new Interval(s, e);
         }
-        display(a);
         sort(a);
-        display(a);
-        merge(a);    
+        System.out.println("");
+        merge(a);
         sc.close();
     }
 }
