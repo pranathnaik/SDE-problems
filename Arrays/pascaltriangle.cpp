@@ -3,7 +3,6 @@
 using namespace std;
 int main()
 { 
-    
     vector <int> vec;
     cout << vec.size();
     int n = 5;
@@ -16,12 +15,10 @@ int main()
     int small = vec[0];
     for (int i = 0; i < n; i++)
     {
-        if (small > vec[i])
-            small = vec[i];
+        if (small > vec[i]) small = vec[i];
     }
     cout << endl
          << small;
     vec.push_back(small);
-
         cout << vec.size();
 }
