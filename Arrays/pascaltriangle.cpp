@@ -1,14 +1,26 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 int main()
 {
-    int n;
-    cin >> n;
-    for (int i = 1; i <= n; i++)
+    vector <int> vec;
+    cout << vec.size();
+    int n = 5;
+    for (int i = 0; i < n; i++)
     {
-
-        for (int j = 1; j <= i; j++)
-            if(i)
-        cout << endl;
+        int a;
+        cin >> a;
+        vec.push_back(a);
     }
+    int small = vec[0];
+    for (int i = 0; i < n; i++)
+    {
+        if (small > vec[i])
+            small = vec[i];
+    }
+    cout << endl
+         << small;
+    vec.push_back(small);
+
+        cout << vec.size();
 }
