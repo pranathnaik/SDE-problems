@@ -2,7 +2,8 @@
 #include <vector>
 using namespace std;
 int main()
-{
+{ 
+    
     vector <int> vec;
     cout << vec.size();
     int n = 5;
