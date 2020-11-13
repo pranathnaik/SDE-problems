@@ -9,28 +9,18 @@ int main()
     for (int i = 0; i < size; i++)
         cin >> a[i];
 
-    int small = a[0];
-    int smallIndex;
+    int min = a[0];
+    int profit = 0;
 
     for (int i = 1; i < size; i++)
     {
-        if (small > a[i])
+        if (min > a[i])
         {
-            small = a[i];
-            smallIndex = i;
+            min = a[i];
         }
+        if (profit < a[i] - min)
+            profit = a[i] - min;
     }
-    if (smallIndex != size - 1)
-    {
-        int large = a[smallIndex + 1];
-        for (int i = smallIndex + 1; i < size; i++)
-        {
-            if (large < a[i]) large = a[i];
-        }
-        cout << large - small;
-    }
-    else
-    {
-        cout << "0";
-    }
+
+    cout << profit;
 }
